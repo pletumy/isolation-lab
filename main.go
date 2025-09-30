@@ -16,6 +16,8 @@ func main() {
 	switch os.Args[1] {
 	case "locks":
 		scenario.RunLocks()
+	case "read_committed":
+		scenario.RunReadCommitted()
 	default:
 		fmt.Println("Unknown scenario")
 	}

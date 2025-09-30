@@ -31,3 +31,12 @@ func QueryAccounts(tx pgx.Tx, label string) error {
 func PrintStep(session, msg string) {
 	fmt.Printf("[%s] %s\n", session, msg)
 }
+
+func SafeRollback(session string, tx pgx.Tx) {
+	if err := tx.Rollback(context.Background()); err != nil && err != pgx.ErrTxClosed {
+		fmt.Printf("[Session %s] rollback err: %w\n", session, err)
+	}
+}
+
+func Worker() {
+}
