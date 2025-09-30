@@ -18,6 +18,8 @@ func main() {
 		scenario.RunLocks()
 	case "read_committed":
 		scenario.RunReadCommitted()
+	case "repeatable_read":
+		scenario.RunRepeatableRead()
 	default:
 		fmt.Println("Unknown scenario")
 	}
